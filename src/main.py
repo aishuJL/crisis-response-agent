@@ -1,7 +1,7 @@
 # main.py
 
-from src.planner import plan_response
-from src.executor import execute
+from planner import plan_response
+from executor import execute
 
 def main():
     print("Welcome to Crisis Response Agent \n")
