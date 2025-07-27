@@ -1,6 +1,6 @@
 import streamlit as st
-from src.planner import plan_response
-from src.executor import execute
+from planner import plan_response
+from executor import execute
 import requests
 from datetime import datetime
 
