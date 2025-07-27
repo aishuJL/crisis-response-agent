@@ -3,10 +3,10 @@ import streamlit as st
 import google.generativeai as genai
 
 GEMINI_API_KEY = st.secrets["GEMINI_API_KEY"]
+api_key = st.secrets["GEMINI_API_KEY"]
 if not api_key:
     raise ValueError("GEMINI_API_KEY not found in .env file!")
 
-api_key = st.secrets["GEMINI_API_KEY"]
 genai.configure(api_key=api_key)
 model = genai.GenerativeModel("gemini-pro")
 
