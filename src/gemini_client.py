@@ -6,14 +6,9 @@ api_key = st.secrets.get("GEMINI_API_KEY")
 if not api_key:
     raise ValueError("GEMINI_API_KEY not found in Streamlit secrets!")
 
-genai.configure(api_key=api_key)
+genai.configure(api_key=api_key, transport="rest")
 
-# Gemini Pro via v1 endpoint (correct model call)
-try:
-    model = genai.GenerativeModel(model_name="models/gemini-pro")
-except Exception as e:
-    st.error(f"Model Load Error: {str(e)}")
-    raise e
+model = genai.GenerativeModel("models/gemini-pro")  
 
 def generate_content(prompt):
     try:
