@@ -1,3 +1,5 @@
+# src/gemini_client.py
+
 import streamlit as st
 import google.generativeai as genai
 
@@ -8,6 +10,7 @@ if not api_key:
 
 genai.configure(api_key=api_key)
 
+# ✅ Use correct model name with full path
 model = genai.GenerativeModel(model_name="models/gemini-pro")
 
 def generate_content(prompt):
@@ -16,5 +19,5 @@ def generate_content(prompt):
         return response.text
     except Exception as e:
         if "quota" in str(e).lower():
-            return "⚠️ Quota exceeded for Gemini API. Please wait or reduce usage."
+            return "⚠️ Quota exceeded. Try again later."
         return f"❌ Gemini Error: {str(e)}"
