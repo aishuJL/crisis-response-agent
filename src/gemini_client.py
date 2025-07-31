@@ -8,7 +8,7 @@ if not api_key:
 
 genai.configure(api_key=api_key)
 
-model = genai.GenerativeModel("models/gemini-pro")  
+model = genai.GenerativeModel(model_name="models/gemini-pro")
 
 def generate_content(prompt):
     try:
@@ -16,5 +16,5 @@ def generate_content(prompt):
         return response.text
     except Exception as e:
         if "quota" in str(e).lower():
-            return "Quota exceeded for Gemini API. Please wait or reduce usage."
-        return f"Gemini Error: {str(e)}"
+            return "⚠️ Quota exceeded for Gemini API. Please wait or reduce usage."
+        return f"❌ Gemini Error: {str(e)}"
